@@ -1,6 +1,6 @@
 // Include either M5Stack.h or M5Core2.h
-// #include <M5Core2.h>
-#include <M5Stack.h>
+ #include <M5Core2.h>
+//#include <M5Stack.h>
 #include <Avatar.h>
 
 using namespace m5avatar;

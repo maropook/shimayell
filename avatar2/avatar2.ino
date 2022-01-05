@@ -1,8 +1,13 @@
-#include <AquesTalkTTS.h>
-#include <M5Stack.h>
-// #include <M5Core2.h> // M5Stack Core2の場合はこちらを使う
+//#include <AquesTalkTTS.h>
+//#include <M5Stack.h>
+ #include <M5Core2.h> // M5Stack Core2の場合はこちらを使う
 #include <Avatar.h>
 #include <tasks/LipSync.h>
+//#include <driver/i2s.h>
+
+
+#include "AquesTalkTTS.h"
+#include "driver/dac.h"
 
 using namespace m5avatar;
 
@@ -11,11 +16,15 @@ using namespace m5avatar;
 const char* AQUESTALK_KEY = "XXXX-XXXX-XXXX-XXXX";
 Avatar avatar;
 
+
+
+
 void setup() {
+ 
   int iret;
-  M5.begin();
-  // 漢字かな混じり文から音声出力する場合(辞書ファイルが必要)
-  // iret = TTS.createK(AQUESTALK_KEY);
+  M5.begin(true,true,true,true);
+
+
   iret = TTS.create(AQUESTALK_KEY);
   avatar.init();
   avatar.addTask(lipSync, "lipSync");
